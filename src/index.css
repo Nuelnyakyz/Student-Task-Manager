@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base surfaces */
+    --background: 0 0% 100%;            /* White */
+    --foreground: 232 18% 15%;          /* Slate-900 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 232 18% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 232 18% 15%;
+
+    /* Brand colors */
+    --primary: 156 72% 32%;             /* Deep green */
+    --primary-foreground: 0 0% 100%;    /* White */
+
+    /* Subtle surfaces (chips, soft sections) */
+    --secondary: 150 35% 96%;           /* Green-tinted surface */
+    --secondary-foreground: 156 40% 20%;
+
+    --muted: 230 20% 96%;               /* Soft slate */
+    --muted-foreground: 230 10% 40%;
+
+    /* Highlight and marketing accents */
+    --accent: 161 85% 35%;              /* Emerald accent */
+    --accent-foreground: 0 0% 100%;
+
+    /* Status */
+    --destructive: 0 72% 51%;           /* Red */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Strokes & controls */
+    --border: 152 20% 90%;
+    --input: 152 20% 90%;
+    --ring: 156 72% 32%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-background: 150 35% 98%;
+    --sidebar-foreground: 156 40% 20%;
+    --sidebar-primary: 156 72% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 30% 95%;
+    --sidebar-accent-foreground: 156 40% 20%;
+    --sidebar-border: 152 20% 90%;
+    --sidebar-ring: 156 72% 32%;
+  }
+
+  .dark {
+    --background: 247 22% 9%;            /* Deep slate */
+    --foreground: 0 0% 98%;
+
+    --card: 247 22% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 247 22% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 150 95% 60%;              /* Vibrant green for contrast */
+    --primary-foreground: 247 22% 10%;
+
+    --secondary: 160 22% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 160 22% 16%;
+    --muted-foreground: 130 10% 72%;
+
+    --accent: 152 90% 45%;               /* Emerald accent pops on dark */
+    --accent-foreground: 247 22% 10%;
+
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 160 15% 20%;
+    --input: 160 15% 20%;
+    --ring: 150 95% 60%;
+
+    --sidebar-background: 160 22% 9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 150 95% 60%;
+    --sidebar-primary-foreground: 247 22% 10%;
+    --sidebar-accent: 160 22% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 160 15% 20%;
+    --sidebar-ring: 150 95% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Utilities and typography helpers for consistent visuals */
+@layer base {
+  h1 { @apply text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight; }
+  h2 { @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight; }
+  h3 { @apply text-xl md:text-2xl font-semibold; }
+  h4 { @apply text-lg md:text-xl font-semibold; }
+  h5 { @apply text-base md:text-lg font-semibold; }
+  h6 { @apply text-sm md:text-base font-semibold; }
+
+  a { @apply text-primary underline-offset-4 hover:underline; }
+}
+
+@layer utilities {
+  .bg-brand-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  .text-brand-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shadow-elevated {
+    /* Subtle elevation tuned per theme */
+    box-shadow: 0 6px 20px hsla(0, 0%, 0%, 0.08), 0 2px 6px hsla(0, 0%, 0%, 0.06);
+  }
+}
