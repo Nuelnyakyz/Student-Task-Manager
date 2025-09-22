@@ -27,7 +27,14 @@ export const AddTaskForm = () => {
   const queryClient = useQueryClient();
 
   const createTaskMutation = useMutation({
-    mutationFn: async (taskData: any) => {
+    mutationFn: async (taskData: {
+      title: string;
+      description: string | null;
+      subject: string | null;
+      priority: string;
+      due_date: string | null;
+      status: string;
+    }) => {
       if (!user) throw new Error('User not authenticated');
       
       const { error } = await supabase

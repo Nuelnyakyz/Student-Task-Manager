@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+// @ts-ignore - tailwindcss-animate doesn't have TypeScript declarations
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -87,5 +89,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    tailwindcssAnimate
+  ],
 } satisfies Config;
